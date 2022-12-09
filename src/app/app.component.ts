@@ -29,19 +29,24 @@ export class AppComponent {
     } else {
       alert('Login invalido');
     }
-    console.log(this.auth);
   }
 
   postLogout() {
     this.auth = null;
+    localStorage.setItem('user', '');
+    localStorage.setItem('password', '');
   }
 
   getList() {}
 
   ngOnInit() {
-    this.auth = {
-      username: localStorage.getItem('user'),
-      password: localStorage.getItem('password'),
-    };
+    console.log(localStorage.getItem('user') == '');
+    if (localStorage.getItem('user') != '') {
+      this.auth = {
+        username: localStorage.getItem('user'),
+        password: localStorage.getItem('password'),
+      };
+      return;
+    }
   }
 }

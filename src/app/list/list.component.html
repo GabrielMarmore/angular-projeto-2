@@ -1,0 +1,13 @@
+<div>
+  <ul>
+    <li *ngFor="let item of items">
+      {{ item }}
+      <button (click)="removeTarefa(item)">Concluída</button>
+    </li>
+  </ul>
+
+  {{ tarefa }}
+
+  <input type="text" [(ngModel)]="tarefa" />
+  <button (click)="addTarefa()">Adicionar tarefa</button>
+</div>
