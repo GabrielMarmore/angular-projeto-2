@@ -13,7 +13,7 @@
 
 <div *ngIf="auth">
   Bem vindo, {{ auth.username }} | <a [routerLink]="['/']">Tarefas</a> |
-  <a [routerLink]="['/done-list']">Tarefas feitas</a> |
+  <a [routerLink]="['/done']">Tarefas feitas</a> |
   <input type="button" value="Sair" (click)="postLogout()" />
   <div>
     <router-outlet></router-outlet>
