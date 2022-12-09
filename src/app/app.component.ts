@@ -1,11 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, VERSION } from '@angular/core';
-
-interface Auth {
-  token: string;
-  username: string;
-  profile: Array<string>;
-}
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -13,8 +6,7 @@ interface Auth {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  name = 'Aula 12';
-  site = 'https://protected-fortress-44116.herokuapp.com';
+  name = 'Angular Atividade complentar - Vithoria Arenda';
 
   login = 'admin';
   password = '';
@@ -23,31 +15,33 @@ export class AppComponent {
 
   list = null;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   postLogin() {
-    this.http
-      .post<Auth>(this.site + '/login', {
-        login: this.login,
+    if (this.login == 'admin' && this.password == '123') {
+      localStorage.setItem('user', this.login);
+      localStorage.setItem('password', this.password);
+
+      this.auth = {
+        username: this.login,
         password: this.password,
-      })
-      .subscribe((data) => {
-        this.auth = data;
-      });
-    console.log();
+      };
+    } else {
+      alert('Login invalido');
+    }
+    console.log(this.auth);
   }
 
   postLogout() {
     this.auth = null;
   }
 
-  getList() {
-    this.http
-      .get<any>(this.site + '/api/v1/users', {
-        headers: { Authorization: 'Bearer ' + this.auth.token },
-      })
-      .subscribe((data) => {
-        this.list = data;
-      });
+  getList() {}
+
+  ngOnInit() {
+    this.auth = {
+      username: localStorage.getItem('user'),
+      password: localStorage.getItem('password'),
+    };
   }
 }
