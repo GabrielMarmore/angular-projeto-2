@@ -11,7 +11,7 @@ import { ListComponent } from './list/list.component';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([{ path: '', component: ListComponent }]),
+    RouterModule.forRoot([{ path: 'list', component: ListComponent }]),
   ],
   declarations: [AppComponent, HelloComponent, ListComponent],
   bootstrap: [AppComponent],

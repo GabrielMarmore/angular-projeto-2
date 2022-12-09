@@ -1,0 +1,8 @@
+<div>
+  <ul>
+    <li *ngFor="let item of items_done">
+      {{ item }}
+      <button (click)="removeTarefa(item)">Remover</button>
+    </li>
+  </ul>
+</div>

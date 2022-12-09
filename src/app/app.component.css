@@ -1,3 +1,23 @@
-p {
-  font-family: Lato;
+div {
+  text-align: center;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: black;
+}
+
+a:hover {
+  color: #642397;
+}
+
+h1,
+.title {
+  color: #642397;
+  font-weight: 600;
 }

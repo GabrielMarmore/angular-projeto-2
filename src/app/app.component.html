@@ -1,4 +1,4 @@
-<hello name="{{ name }}"></hello>
+<hello class="title" name="{{ name }}"></hello>
 <hr />
 <div *ngIf="!auth">
   <div>User</div>
@@ -12,7 +12,8 @@
 </div>
 
 <div *ngIf="auth">
-  Bem vindo, {{ auth.username }}
+  Bem vindo, {{ auth.username }} | <a [routerLink]="['/']">Tarefas</a> |
+  <a [routerLink]="['/done-list']">Tarefas feitas</a> |
   <input type="button" value="Sair" (click)="postLogout()" />
   <div>
     <router-outlet></router-outlet>
